@@ -19,7 +19,7 @@ export default function SignIn() {
   return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
         <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-          <h2 className="text-2xl font-bold text-center mb-6">Sign In</h2>
+          <h2 className="text-2xl font-bold text-center mb-6 text-black">Sign In</h2>
           <form onSubmit={handleSignIn} className="space-y-4">
             <div>
               <label htmlFor="username" className="block text-sm font-medium text-gray-900">Username</label>
