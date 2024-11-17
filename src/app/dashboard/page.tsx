@@ -1,10 +1,16 @@
+"use client";
 
-const Page = () => {
+
+import ProtectedRoute from "@/app/components/ProtectedRoute";
+
+const DashboardPage = () => {
     return (
-        <div className="min-h-screen flex justify-center items-center">
-            Dashboard
-        </div>
+        <ProtectedRoute>
+            <div className="min-h-screen flex justify-center items-center">
+                Dashboard
+            </div>
+        </ProtectedRoute>
     );
 };
 
-export default Page;
+export default DashboardPage;

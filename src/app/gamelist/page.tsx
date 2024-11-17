@@ -1,15 +1,13 @@
 'use client'
 
 import React, { useState } from 'react'
+import Link from "next/link";
 
 // Sample game data
 const games = [
-    { id: 1, title: "Epic Quest", genre: "RPG", releaseDate: "2023-05-15", imageUrl: "/placeholder.svg?height=200&width=300" },
-    { id: 2, title: "Space Odyssey", genre: "Strategy", releaseDate: "2023-08-22", imageUrl: "/placeholder.svg?height=200&width=300" },
-    { id: 3, title: "Neon Racer", genre: "Racing", releaseDate: "2023-03-10", imageUrl: "/placeholder.svg?height=200&width=300" },
-    { id: 4, title: "Mystic Legends", genre: "MMORPG", releaseDate: "2023-11-05", imageUrl: "/placeholder.svg?height=200&width=300" },
-    { id: 5, title: "Zombie Survival", genre: "Action", releaseDate: "2023-07-30", imageUrl: "/placeholder.svg?height=200&width=300" },
-    { id: 6, title: "Puzzle Master", genre: "Puzzle", releaseDate: "2023-09-18", imageUrl: "/placeholder.svg?height=200&width=300" },
+    { id: 1, title: "World of Warcraft Private Server", genre: "MMORPG", releaseDate: "2025-05-15", imageUrl: "/placeholder.svg?height=200&width=300", ReadMorelink: "/shop"},
+    { id: 2, title: "Tera Unchained Private Server", genre: "MMORPG", releaseDate: "2025-08-22", imageUrl: "/placeholder.svg?height=200&width=300", ReadMorelink: "/gamelist/world-of-warcraft"},
+
 ]
 
 export default function Gamelist() {
@@ -51,15 +49,18 @@ export default function Gamelist() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredGames.map(game => (
-                        <div key={game.id} className="bg-gray-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:scale-105 border border-gray-700">
+                        <div key={game.id} className="bg-gray-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300  transform hover:scale-105 border border-gray-700">
                             <img src={game.imageUrl} alt={game.title} className="w-full h-48 object-cover" />
                             <div className="p-4">
                                 <h2 className="text-xl font-semibold mb-2 text-purple-400">{game.title}</h2>
                                 <p className="text-gray-400 mb-2">Genre: {game.genre}</p>
                                 <p className="text-gray-400">Release Date: {game.releaseDate}</p>
-                                <button className="mt-4 bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-colors duration-300 ease-in-out">
-                                    Learn More
-                                </button>
+                                <Link href={game.ReadMorelink}>
+                                    <button
+                                        className="mt-4 bg-purple-600 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-colors duration-300 ease-in-out">
+                                        Read More
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     ))}
